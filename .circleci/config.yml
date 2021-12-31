@@ -53,7 +53,7 @@ jobs:
 
 workflows:
   version: 2
-  continuous-deploy:
+  put-dist-to-s3:
     jobs:
       - test
       - deploy:
