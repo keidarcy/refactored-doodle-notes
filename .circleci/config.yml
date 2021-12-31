@@ -55,6 +55,7 @@ jobs:
             --recursive
           from: dist
           to: s3://${S3_BUCKET}
+      - create_invalidation
 
 workflows:
   version: 2
