@@ -1,13 +1,13 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@1.0.11
+  aws-s3: circleci/aws-s3@3.0
 
 executors:
   default:
     docker:
-      - image: circleci/node:8.17
-      - image: circleci/python:3.8
+      - image: 'cimg/node:8.17'
+      - image: 'cimg/python:3.6'
 
 commands:
   npm_install:
