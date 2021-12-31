@@ -46,6 +46,8 @@ jobs:
           name: build
           command: yarn build
       - aws-s3/copy:
+          arguments: |
+            --recursive
           from: dist
           to: s3://${S3_BUCKET}
 
