@@ -59,8 +59,8 @@ workflows:
   version: 2
   continuous-deploy:
     jobs:
-      - test
       - build
+      - test
       - deploy:
           requires:
             - test
