@@ -25,6 +25,11 @@ commands:
       - run:
           name: run unit test
           command: yarn test
+  npm_build:
+    steps:
+      - run:
+          name: build app
+          command: yarn build
 
 jobs:
   build:
@@ -39,6 +44,7 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - npm_install
       - npm_test
       
   deploy:
@@ -59,12 +65,12 @@ workflows:
   version: 2
   continuous-deploy:
     jobs:
-      - build
       - test
+      - build
       - deploy:
           requires:
-            - build
             - test
+            - build
           filters:
             branches:
               only: master
