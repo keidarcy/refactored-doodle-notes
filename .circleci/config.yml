@@ -55,10 +55,10 @@ jobs:
       - npm_install
       - run:
           name: build
-          command: yarn build:prod
+          command: yarn build
       - aws-s3/sync:
           from: dist
-          to: s3://<S3 Bucket Name>
+          to: s3://${S3_BUCKET}
           overwrite: true
 
 workflows:
