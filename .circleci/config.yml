@@ -45,10 +45,7 @@ jobs:
       - run:
           name: build
           command: yarn build
-      - aws-s3/sync:
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400"
+      - aws-s3/copy:
           from: dist
           to: s3://${S3_BUCKET}
 
